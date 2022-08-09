@@ -103,7 +103,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="info" catalog="system" id="fDM-Hk-A3t">
                             <color key="tintColor" systemColor="labelColor"/>
                             <connections>
-                                <segue destination="U0t-pF-A3T" kind="popoverPresentation" popoverAnchorBarButtonItem="fDM-Hk-A3t" id="3CZ-v0-sNz">
+                                <segue destination="U0t-pF-A3T" kind="popoverPresentation" identifier="tempResult" popoverAnchorBarButtonItem="fDM-Hk-A3t" id="3CZ-v0-sNz">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>
@@ -135,13 +135,47 @@
                     <view key="view" contentMode="scaleToFill" id="HoM-Yg-G6m" customClass="resultViewC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="54" translatesAutoresizingMaskIntoConstraints="NO" id="1OE-8F-zK2">
+                                <rect key="frame" x="62.666666666666657" y="332" width="249.99999999999997" height="94"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Converted temperature result is:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppt-wm-txw">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="19.666666666666668"/>
+                                        <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLE-Ch-ylY">
+                                        <rect key="frame" x="104.33333333333334" y="73.666666666666686" width="41.333333333333343" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun.haze" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zrw-Vn-Pfx">
+                                <rect key="frame" x="16" y="110" width="343" height="214"/>
+                                <color key="tintColor" name="AccentColor"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="suZ-9e-4de"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zrw-Vn-Pfx" firstAttribute="leading" secondItem="suZ-9e-4de" secondAttribute="leading" constant="16" id="7Ev-t1-kt1"/>
+                            <constraint firstItem="1OE-8F-zK2" firstAttribute="centerY" secondItem="HoM-Yg-G6m" secondAttribute="centerY" id="M3U-Gt-ek5"/>
+                            <constraint firstItem="suZ-9e-4de" firstAttribute="trailing" secondItem="zrw-Vn-Pfx" secondAttribute="trailing" constant="16" id="MZb-Sk-A91"/>
+                            <constraint firstItem="1OE-8F-zK2" firstAttribute="centerX" secondItem="HoM-Yg-G6m" secondAttribute="centerX" id="nxk-4q-pSs"/>
+                            <constraint firstItem="zrw-Vn-Pfx" firstAttribute="top" secondItem="suZ-9e-4de" secondAttribute="top" constant="67.670000000000002" id="tQi-wh-ErF"/>
+                            <constraint firstItem="1OE-8F-zK2" firstAttribute="top" secondItem="zrw-Vn-Pfx" secondAttribute="bottom" constant="7.6699999999999999" id="yft-55-NRS"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tempValueLabel" destination="NLE-Ch-ylY" id="Y67-iW-781"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BCp-wq-adu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="962" y="853"/>
+            <point key="canvasLocation" x="960.79999999999995" y="852.70935960591135"/>
         </scene>
         <!--Appearence View Controller-->
         <scene sceneID="RJg-fu-Z96">
@@ -235,6 +269,7 @@
     <resources>
         <image name="info" catalog="system" width="93" height="128"/>
         <image name="sun" width="375" height="667"/>
+        <image name="sun.haze" catalog="system" width="128" height="119"/>
         <image name="sun.max.fill" catalog="system" width="128" height="124"/>
         <image name="sun.min" catalog="system" width="128" height="121"/>
         <image name="sun.min.fill" catalog="system" width="128" height="121"/>

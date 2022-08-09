@@ -57,6 +57,18 @@ class HomeViewController: UIViewController {
         return (fahrenheit, kelvin)
     }
     
+   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "tempResult" {
+            guard let vc = segue.destination as? resultViewController else {return}
+                        // Pass the selected object to the new view controller.
+            vc.tempValueText = convertedTempLabel.text ?? "No data"
+    
+        }
+      
+        
+    }
+    
                }
 
 
